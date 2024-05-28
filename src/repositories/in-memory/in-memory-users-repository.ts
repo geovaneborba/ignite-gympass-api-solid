@@ -14,8 +14,6 @@ export class InMemoryUsersRepository implements UsersRepository {
   async findByEmail(email: string): Promise<User | null> {
     const user = this.users.find((user) => user.email === email)
 
-    console.log('findByEmail:', email, 'result:', user)
-
     return user || null
   }
 
@@ -26,7 +24,7 @@ export class InMemoryUsersRepository implements UsersRepository {
       email: data.email,
       password_hash: data.password_hash,
       created_at: new Date(),
-      role: 'MEMBER',
+      role: data.role ?? 'MEMBER',
     }
 
     this.users.push(user)
