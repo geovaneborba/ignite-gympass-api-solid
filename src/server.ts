@@ -1,12 +1,6 @@
 import { app } from '@/app'
 import { env } from '@/env'
 
-app.get('/', (request, reply) => {
-  return reply.send({
-    message: "it's work!",
-  })
-})
-
 app
   .listen({
     host: '0.0.0.0',
